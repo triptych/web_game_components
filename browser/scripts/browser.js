@@ -170,7 +170,9 @@ const updatePreview = async (component) => {
         // Create component preview
         const previewWrapper = document.createElement('div');
         previewWrapper.className = 'component-preview';
-        const componentInstance = document.createElement(component.module.GameButton.name.toLowerCase());
+
+        // Create the component instance using the correct tag name
+        const componentInstance = document.createElement('game-button');
         componentInstance.setAttribute('data-preview-component', '');
 
         // Set default attributes
