@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Game Components Browser</title>
+        <link rel="stylesheet" href="styles/main.css">
+        <script type="module" src="scripts/browser.js"></script>
+    </head>
+    <body>
+        <div class="app-container">
+            <!-- Component List Sidebar -->
+            <aside class="component-list">
+                <header class="sidebar-header">
+                    <h1>Game Components</h1>
+                    <div class="search-container">
+                        <input type="search" id="componentSearch" placeholder="Search components..." aria-label="Search components">
+                    </div>
+                </header>
+                <nav class="component-nav">
+                    <div class="category">
+                        <h2>UI Components</h2>
+                        <ul class="component-items" id="uiComponents"></ul>
+                    </div>
+                    <div class="category">
+                        <h2>Sprite Components</h2>
+                        <ul class="component-items" id="spriteComponents"></ul>
+                    </div>
+                    <div class="category">
+                        <h2>Physics Components</h2>
+                        <ul class="component-items" id="physicsComponents"></ul>
+                    </div>
+                    <div class="category">
+                        <h2>Effect Components</h2>
+                        <ul class="component-items" id="effectComponents"></ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Component Preview Area -->
+            <main class="preview-area">
+                <header class="preview-header">
+                    <h2 id="previewTitle">Select a Component</h2>
+                </header>
+                <div class="preview-container">
+                    <div id="componentPreview" class="component-preview">
+                        <p class="placeholder-text">Select a component from the list to preview</p>
+                    </div>
+                    <div class="preview-controls" id="previewControls"></div>
+                </div>
+                <footer class="preview-footer">
+                    <div class="source-code" id="sourceCode"></div>
+                </footer>
+            </main>
+        </div>
+    </body>
+</html>
