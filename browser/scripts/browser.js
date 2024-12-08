@@ -171,14 +171,17 @@ const updatePreview = async (component) => {
         const previewWrapper = document.createElement('div');
         previewWrapper.className = 'component-preview';
 
-        // Create the component instance using the correct tag name
-        const componentInstance = document.createElement('game-button');
+        // Create the component instance using the component's tag name
+        const tagName = component.name.toLowerCase().replace(/\s+/g, '-');
+        const componentInstance = document.createElement(tagName);
         componentInstance.setAttribute('data-preview-component', '');
 
         // Set default attributes
         if (component.attributes) {
             component.attributes.forEach(attr => {
-                componentInstance.setAttribute(attr.name, attr.default);
+                if (attr.default !== undefined) {
+                    componentInstance.setAttribute(attr.name, attr.default);
+                }
             });
         }
 
@@ -285,9 +288,13 @@ const initializeEventListeners = () => {
 // Load Components
 const loadComponents = async () => {
     try {
-        // Import game-button component using relative path
+        // Import UI components
         const gameButtonModule = await import('../../components/ui/game-button.js');
         await componentRegistry.registerComponent('ui', gameButtonModule);
+
+        // Import sprite components
+        const gameSpriteModule = await import('../../components/ui/game-sprite.js');
+        await componentRegistry.registerComponent('sprites', gameSpriteModule);
     } catch (error) {
         console.error('Error loading components:', error);
     }
