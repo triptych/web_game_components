@@ -1,0 +1,14 @@
+{
+    "components": [
+        {
+            "name": "game-button",
+            "path": "ui/game-button.js",
+            "category": "ui"
+        },
+        {
+            "name": "game-sprite",
+            "path": "ui/game-sprite.js",
+            "category": "sprites"
+        }
+    ]
+}

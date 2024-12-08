@@ -288,13 +288,15 @@ const initializeEventListeners = () => {
 // Load Components
 const loadComponents = async () => {
     try {
-        // Import UI components
-        const gameButtonModule = await import('../../components/ui/game-button.js');
-        await componentRegistry.registerComponent('ui', gameButtonModule);
+        // Load manifest
+        const manifestResponse = await fetch('../../components/manifest.json');
+        const manifest = await manifestResponse.json();
 
-        // Import sprite components
-        const gameSpriteModule = await import('../../components/ui/game-sprite.js');
-        await componentRegistry.registerComponent('sprites', gameSpriteModule);
+        // Import components based on manifest
+        for (const component of manifest.components) {
+            const module = await import(`../../components/${component.path}`);
+            await componentRegistry.registerComponent(component.category, module);
+        }
     } catch (error) {
         console.error('Error loading components:', error);
     }
