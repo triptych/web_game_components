@@ -25,6 +25,22 @@ Attributes:
 - `theme`: primary (default) | success | danger
 - `size`: small | medium (default) | large
 
+### Game Sprite
+A sprite component for displaying game graphics with animation support. Features frame-by-frame animation, pixel-perfect rendering, and horizontal flipping.
+
+```html
+<game-sprite src="character.png" frame-width="32" frame-height="32" frame-count="8" fps="12"></game-sprite>
+```
+
+Attributes:
+- `src`: URL of the sprite sheet image
+- `frame-width`: Width of each frame in pixels (default: 32)
+- `frame-height`: Height of each frame in pixels (default: 32)
+- `frame-count`: Total number of frames in the sprite sheet (default: 1)
+- `fps`: Frames per second for animation, set to 0 for static display (default: 0)
+- `current-frame`: Current frame to display, 0-based index (default: 0)
+- `flip`: Flip the sprite horizontally - 'none' or 'horizontal' (default: none)
+
 ## Installation
 
 1. Clone the repository
